@@ -1,49 +1,53 @@
-# Title (replace with your title)
+How to Validate Phone Numbers with Regular Expressions
+Regular expressions (regex) are super handy when it comes to matching patterns in text. They allow us to set rules for identifying or validating data, like phone numbers, which can come in different formats. In this guide, I'll show you how to use regex to check if phone numbers match a standard format, such as (123) 456-7890 or 123-456-7890.
 
-Introductory paragraph (replace this with your text)
+Summary
+In this tutorial, I'll walk you through a regex pattern used to validate phone numbers. This pattern ensures that numbers have the right mix of digits, optional parentheses, spaces, or hyphens. It can handle different formats, from local to international numbers. Here's the regex we'll be focusing on:
 
-## Summary
+js
+Copy code
+const phonePattern = /^(\+?\d{1,3}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}$/;
+I'll break down each part of this regex to show you how it works to match different types of phone numbers, even if there is a slight variations in format.
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+Table of Contents
+Understanding the Regex Structure
+Using Anchors to Define Boundaries
+Applying Quantifiers for Flexibility
+Grouping and Optional Elements
+Character Classes and Escapes
+Common Modifiers and Flags
+Combining Everything Together
+Regex Components
+Understanding the Regex Structure
+This regex is set up to match different phone number formats by defining a sequence of digits, along with optional symbols and spaces:
 
-## Table of Contents
+^ and $ are anchors that mark the beginning and end of the string.
+\+?\d{1,3} matches an optional plus sign followed by 1 to 3 digits (which could be a country code).
+[-.\s]? allows for an optional separator like a hyphen, dot, or space.
+Using Anchors to Define Boundaries
+The ^ and $ symbols are anchors that ensure the entire input string is a phone number, not just part of it.
 
-- [Anchors](#anchors)
-- [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
-- [Character Classes](#character-classes)
-- [Flags](#flags)
-- [Grouping and Capturing](#grouping-and-capturing)
-- [Bracket Expressions](#bracket-expressions)
-- [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+Applying Quantifiers for Flexibility
+Quantifiers define how many times a character or group should appear:
 
-## Regex Components
+\d{1,3} allows 1 to 3 digits (good for country codes).
+{3} and {4} specify exact lengths for area codes and local numbers.
+Grouping and Optional Elements
+Parentheses () create groups in the regex, and ? makes certain groups optional:
 
-### Anchors
+(\+?\d{1,3}[-.\s]?)? matches an optional country code with an optional separator.
+(\(?\d{3}\)?[-.\s]?)? matches an optional area code in various formats, like (123) or 123.
+Character Classes and Escapes
+Character classes set the range of acceptable characters:
 
-### Quantifiers
+\d matches any digit.
+[-.\s] matches a hyphen, dot, or space used as a separator.
+Common Modifiers and Flags
+Flags like g (global) or i (case-insensitive) aren't needed for this regex, but you could use them to control how the regex behaves.
 
-### OR Operator
+Combining Everything Together
+All these components, the regex can handle many different phone number formats, making it versatile for different user inputs.
 
-### Character Classes
+About the Author
+Written by Andrew, I love breaking down complex projects into easy to understand topics.
 
-### Flags
-
-### Grouping and Capturing
-
-### Bracket Expressions
-
-### Greedy and Lazy Match
-
-### Boundaries
-
-### Back-references
-
-### Look-ahead and Look-behind
-
-## Author
-
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
